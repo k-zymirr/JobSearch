@@ -64,3 +64,12 @@ window.onload = function() {
         input.parentNode.classList.add("inputGroup");
     });
 }
+
+
+function changeTheme() {
+    if (document.getElementsByClassName('darkTheme').length == 0){
+        document.getElementsByTagName('body')[0].classList.add('darkTheme');
+    }else {
+        document.getElementsByTagName('body')[0].classList.remove('darkTheme');
+    }
+}
