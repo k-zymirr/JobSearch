@@ -16,7 +16,7 @@
     <button class="theme" onclick="changeTheme()"></button>
     <div>
         <h2>Ajouter une offre</h2>
-        <form action="" method="post">
+        <form action="add_offer.php" method="post">
             <!--Nom offre, Lien, Compétence, <- note, Localisation, <- note, POstulé ? Réponse-->
             <div>
                 <div>
