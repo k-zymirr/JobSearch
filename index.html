@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Job Search</h1>
+    </header>
+    <div>
+        <h2>Ajouter une offre</h2>
+        <form action="" method="post">
+            <!--Nom offre, Lien, Compétence, <- note, Localisation, <- note, POstulé ? Réponse-->
+            <div>
+                <div>
+                    <input type="text" name="offer" id="offer">
+                    <label for="offer">Nom de l'offre</label>
+                </div>
+                <div>
+                    <input type="text" name="link" id="link">
+                    <label for="link">Lien de l'offre</label>
+                </div>
+            </div>
+            <div class="ranking">
+                <div>
+                    <div>
+                        <input type="text" name="squill" id="squill">
+                        <label for="squill">Compétences demandées</label>
+                    </div>
+                    <div>
+                        <label for="noteSquill">Note</label>
+                        <input type="range" id="noteSquill" name="noteSquill" min="0" max="10" value="0">
+                        <input type="number" id="noteSquillNumber" name="noteSquillNumber" min="0" max="10" value="0">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input type="text" name="location" id="location">
+                        <label for="location">Emplacement</label>
+                    </div>
+                    <div>
+                        <label for="noteSquill">Note</label>
+                        <input type="range" id="noteLocation" name="noteLocation" min="0" max="10" value="0">
+                        <input type="number" id="noteLocationNumber" name="noteLocationNumber" min="0" max="10" value="0">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <input type="submit" value="Ajouter">
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <form action="" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <td>Nom de l'offre</td>
+                    <td>Lien vers l'offre</td>
+                    <td>Compétences demandées</td>
+                    <td>Note</td>
+                    <td>Emplacement</td>
+                    <td>Note</td>
+                    <td>Score</td>
+                    <td>Postulé</td>
+                    <td>Réponse</td>
+                </tr>
+            </thead>
+            <tbody>
+                <td>Data</td>
+                <td><a href="">Arbitraires</a></td>
+                <td>Pour</td>
+                <td>Les/10</td>
+                <td>Test</td>
+                <td>Voili/10</td>
+                <td>Voilou/10</td>
+                <td><input type="checkbox" name="postule-idOffre" id="modifBase"></td>
+                <td><input type="text" name="reponse-idOffre" id="modifBase"></td>
+            </tbody>
+        </table>
+        <input type="submit" value="submit" id="submit">
+    </form>
+</body>
+</html>
