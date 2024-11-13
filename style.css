@@ -1,0 +1,174 @@
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+.darkTheme {
+    background-color: #383838;
+    color: #fff;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+h2 {
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+div {
+    width: 100%;
+}
+
+body > div {
+    border: solid 1px black;
+    border-radius: 30px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+form > div {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.inputGroup {
+    position: relative;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    margin-left: 20%;
+    border: none;
+    border-bottom: solid 2px #808080;
+}
+
+input[type="text"]:focus-visible {
+    outline: none;
+    border-color: #000;
+}
+
+input[type="text"] ~ label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20%;
+    padding-left: 10px;
+    pointer-events: none;
+    transition: 0.3s;
+    color: #808080;
+}
+
+input[type="text"]:focus ~ label,
+input[type="text"]:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #000;
+    font-size: 12px;
+}
+
+.ranking {
+    margin-top: 50px;
+}
+
+.ranking div div:last-child {
+    margin-top: 20px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.ranking label {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.send {
+    justify-content: center;
+}
+
+.send input {
+    width: 10%;
+    margin: 50px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+input[type="submit"] {
+    background-color: #2CAA32;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    background-color: #ca3333;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #34d058;
+}
+
+input[type="reset"]:hover {
+    background-color: #f85149;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table input[type="text"] {
+    all: initial;
+    padding: 5px;
+    border: solid 1px #000;
+    width: 100%;
+}
+
+thead {
+    text-align: center;
+    font-weight: bold;
+    background-color: #c7c7c7;
+}
+
+td {
+    padding: 20px;
+    width: 10%;
+    max-width: 10%;
+    border: solid 1px #000;
+}
+.center{
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#changed {
+    display: none;
+}

@@ -5,6 +5,9 @@ window.onload = function() {
     const locationRange = document.getElementById('noteLocation');
     const locationNumber = document.getElementById('noteLocationNumber');
 
+    const modifBase = document.getElementsByClassName('modifBase');
+
+
     squillRange.addEventListener('input', function() {
         squillNumber.value = squillRange.value;
     });
@@ -49,5 +52,15 @@ window.onload = function() {
         }else {
             locationRange.value = value;
         }
+    });
+
+    for (let i = 0; i < modifBase.length; i++) {
+        modifBase[i].addEventListener('change', function() {
+            document.getElementById('changed').click();
+        });
+    };
+
+    document.querySelectorAll("div > input[type='text']").forEach(input => {
+        input.parentNode.classList.add("inputGroup");
     });
 }
