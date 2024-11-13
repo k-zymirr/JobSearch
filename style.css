@@ -153,7 +153,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="reset"] {
+input[type="reset"], .del button{
     background-color: #ca3333;
     color: #fff;
     font-size: 17px;
@@ -166,7 +166,7 @@ input[type="submit"]:hover {
     background-color: #34d058;
 }
 
-input[type="reset"]:hover {
+input[type="reset"]:hover, .del button:hover {
     background-color: #f85149;
 }
 
@@ -218,6 +218,19 @@ tbody tr:nth-child(odd) {
 
 a, a:visited {
     color: #68bbff;
+}
+
+.del ~ input{
+    display: none;
+}
+
+.del {
+    display: flex;
+    justify-content: center;
+}
+
+.del button {
+    padding: 10px;
 }
 
 #changed {
