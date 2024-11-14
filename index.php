@@ -95,8 +95,8 @@
                         echo "<td class=\"center\"><input type='checkbox' name='postule-".$offr['id']."' id='postule-".$offr['id']."' class='modifBase'" . ($offr['applied'] == 1 ? "checked" : "") . "></td>";
                         echo "<td><input type='text' name='reponse-".$offr['id']."' id='reponse-".$offr['id']."' class='modifBase' ". (strlen($offr['response']) == 0 ? "" : "value='" . $offr['response'] . "'") ."></td>";
                         echo "<td>";
-                        echo "<label for='delete-".$offr['id']."' class='del'><button>Supprimer</button></label>";
-                        echo "<input type='checkbox' name='delete-".$offr['id']."' id='delete-".$offr['id']."' >";
+                        echo "<label for='delete-".$offr['id']."' class='del'><button type='button' onclick='toggleCheckbox(".$offr['id'].")'>Supprimer</button></label>";
+                        echo "<input type='checkbox' name='delete-".$offr['id']."' id='delete-".$offr['id']."' class='modifBase'>";
                         echo "</td>";
                         echo "</tr>";
                     }

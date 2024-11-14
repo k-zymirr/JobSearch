@@ -55,6 +55,7 @@ window.onload = function() {
     });
 
     for (let i = 0; i < modifBase.length; i++) {
+        console.log(modifBase[i]);
         modifBase[i].addEventListener('change', function() {
             document.getElementById('changed').click();
         });
@@ -72,4 +73,10 @@ function changeTheme() {
     }else {
         document.getElementsByTagName('body')[0].classList.remove('darkTheme');
     }
+}
+
+function toggleCheckbox(id) {
+    var checkbox = document.getElementById('delete-' + id);
+    checkbox.checked = !checkbox.checked;
+    document.getElementById('changed').click();
 }
