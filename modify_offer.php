@@ -17,3 +17,6 @@ if (!empty($_POST)) {
         }
     }
 }
+
+header('Refresh:0; url=index.php');
+die();
