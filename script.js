@@ -8,6 +8,10 @@ window.onload = function() {
     const modifBase = document.getElementsByClassName('modifBase');
 
 
+    if (localStorage.getItem('theme') == 'dark'){
+        document.getElementsByTagName('body')[0].classList.add('darkTheme');
+    }
+
     skillRange.addEventListener('input', function() {
         skillNumber.value = skillRange.value;
     });
@@ -70,8 +74,10 @@ window.onload = function() {
 function changeTheme() {
     if (document.getElementsByClassName('darkTheme').length == 0){
         document.getElementsByTagName('body')[0].classList.add('darkTheme');
+        localStorage.setItem('theme', 'dark');
     }else {
         document.getElementsByTagName('body')[0].classList.remove('darkTheme');
+        localStorage.setItem('theme', 'light');
     }
 }
 
