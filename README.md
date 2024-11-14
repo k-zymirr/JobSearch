@@ -9,7 +9,7 @@ A web application to help in job research
 ```bash
  php -S localhost:8080
 ```
-4. Go to your web browser and search *localhost:8080*
+4. Go to your web browser and search ***localhost:8080***
 5. Here you go !
 6. Everytime you shutdown your computer or close your terminal you have to do again the step from 3.
 
