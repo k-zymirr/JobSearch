@@ -17,7 +17,6 @@
     <div>
         <h2>Ajouter une offre</h2>
         <form action="add_offer.php" method="post">
-            <!--Nom offre, Lien, Compétence, <- note, Localisation, <- note, POstulé ? Réponse-->
             <div>
                 <div>
                     <input type="text" name="offer" id="offer" required>
@@ -31,13 +30,13 @@
             <div class="ranking">
                 <div>
                     <div>
-                        <input type="text" name="squill" id="squill" required>
-                        <label for="squill">Compétences demandées</label>
+                        <input type="text" name="skill" id="skill" required>
+                        <label for="skill">Compétences demandées</label>
                     </div>
                     <div>
-                        <label for="noteSquill">Note</label>
-                        <input type="number" id="noteSquillNumber" name="noteSquillNumber" min="0" max="10" value="" required>
-                        <input type="range" id="noteSquill" name="noteSquill" min="0" max="10" value="0">
+                        <label for="noteSkill">Note</label>
+                        <input type="number" id="noteSkillNumber" name="noteSkillNumber" min="0" max="10" value="" required>
+                        <input type="range" id="noteSkill" name="noteSkill" min="0" max="10" value="0">
                     </div>
                 </div>
                 <div>
@@ -59,7 +58,7 @@
         </form>
     </div>
     
-    <form action="" method="post">
+    <form action="modify_offer.php" method="post">
         <table>
             <thead>
                 <tr>
@@ -72,53 +71,38 @@
                     <td>Score</td>
                     <td>Postulé</td>
                     <td>Réponse</td>
+                    <td>Supprimer</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Data</td>
-                    <td class="center"><a href="">Arbitraires</a></td>
-                    <td>Pour</td>
-                    <td class="center">10/10</td>
-                    <td>Test</td>
-                    <td class="center">10/10</td>
-                    <td class="center">10/10</td>
-                    <td class="center"><input type="checkbox" name="postule-idOffre" id="postule-idOffre" class="modifBase"></td>
-                    <td><input type="text" name="reponse-idOffre" id="reponse-idOffre" class="modifBase"></td>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td class="center"><a href="">Arbitraires</a></td>
-                    <td>Pour</td>
-                    <td class="center">10/10</td>
-                    <td>Test</td>
-                    <td class="center">10/10</td>
-                    <td class="center">10/10</td>
-                    <td class="center"><input type="checkbox" name="postule-idOffre" id="postule-idOffre" class="modifBase"></td>
-                    <td><input type="text" name="reponse-idOffre" id="reponse-idOffre" class="modifBase"></td>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td class="center"><a href="">Arbitraires</a></td>
-                    <td>Pour</td>
-                    <td class="center">10/10</td>
-                    <td>Test</td>
-                    <td class="center">10/10</td>
-                    <td class="center">10/10</td>
-                    <td class="center"><input type="checkbox" name="postule-idOffre" id="postule-idOffre" class="modifBase"></td>
-                    <td><input type="text" name="reponse-idOffre" id="reponse-idOffre" class="modifBase"></td>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td class="center"><a href="">Arbitraires</a></td>
-                    <td>Pour</td>
-                    <td class="center">10/10</td>
-                    <td>Test</td>
-                    <td class="center">10/10</td>
-                    <td class="center">10/10</td>
-                    <td class="center"><input type="checkbox" name="postule-idOffre" id="postule-idOffre" class="modifBase"></td>
-                    <td><input type="text" name="reponse-idOffre" id="reponse-idOffre" class="modifBase"></td>
-                </tr>
+                <?php
+                $dns = 'sqlite:./db.sqlite';
+                $pdo = new PDO($dns);
+
+                try {
+                    $getOffers = $pdo->prepare("SELECT * FROM Offers ORDER BY score DESC");
+                    $getOffers->execute();
+                    $offers = $getOffers->fetchAll();
+                    foreach($offers as &$offr){
+                        echo "<tr>";
+                        echo "<td>".$offr['name']."</td>";
+                        echo "<td class=\"center\"><a href='".$offr['link']."'>" . explode(".", $offr['link'])[1] . "</a></td>";
+                        echo "<td>".$offr['skill']."</td>";
+                        echo "<td class=\"center\">".$offr['noteSkill']."/10</td>";
+                        echo "<td>".$offr['location']."</td>";
+                        echo "<td class=\"center\">".$offr['noteLocation']."/10</td>";
+                        echo "<td class=\"center\">".$offr['score']."/20</td>";
+                        echo "<td class=\"center\"><input type='checkbox' name='postule-".$offr['id']."' id='postule-".$offr['id']."' class='modifBase'" . ($offr['applied'] == 1 ? "checked" : "") . "></td>";
+                        echo "<td><input type='text' name='reponse-".$offr['id']."' id='reponse-".$offr['id']."' class='modifBase' ". (strlen($offr['response']) == 0 ? "" : "value='" . $offr['response'] . "'") ."></td>";
+                        echo "<td>";
+                        echo "<label for='delete-".$offr['id']."' class='del'><button>Supprimer</button></label>";
+                        echo "<input type='checkbox' name='delete-".$offr['id']."' id='delete-".$offr['id']."' >";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                } catch (PDOException $e) {
+                }
+                ?>
             </tbody>
         </table>
         <input type="submit" value="submit" id="changed">

@@ -51,7 +51,7 @@ try {
                 'response' => ""
             ]);
         }
-}
-
-header('Refresh:0; url=index.php');
+} finally {
+    header('Refresh:0; url=index.php');
     die();
+}

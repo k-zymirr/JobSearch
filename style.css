@@ -247,6 +247,7 @@ a, a:visited {
     background-image: url("img/sun.png");
     background-size: cover;
     border: none;
+    cursor: pointer;
 }
 
 .darkTheme .theme {
