@@ -6,6 +6,7 @@ $pdo = new PDO($dns);
 echo "<pre>";
 var_dump($_POST);
 
+
 if (!empty($_POST)) {
     $pdo->exec("UPDATE Offers SET applied = 0");
     foreach ($_POST as $key => $value) {
