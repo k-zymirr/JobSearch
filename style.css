@@ -153,7 +153,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="reset"] {
+input[type="reset"], .del button{
     background-color: #ca3333;
     color: #fff;
     font-size: 17px;
@@ -166,7 +166,7 @@ input[type="submit"]:hover {
     background-color: #34d058;
 }
 
-input[type="reset"]:hover {
+input[type="reset"]:hover, .del button:hover {
     background-color: #f85149;
 }
 
@@ -220,6 +220,19 @@ a, a:visited {
     color: #68bbff;
 }
 
+.del ~ input{
+    display: none;
+}
+
+.del {
+    display: flex;
+    justify-content: center;
+}
+
+.del button {
+    padding: 10px;
+}
+
 #changed {
     display: none;
 }
@@ -234,6 +247,7 @@ a, a:visited {
     background-image: url("img/sun.png");
     background-size: cover;
     border: none;
+    cursor: pointer;
 }
 
 .darkTheme .theme {
