@@ -1,6 +1,6 @@
 window.onload = function() {
-    const skillRange = document.getElementById('noteSkill');
-    const skillNumber = document.getElementById('noteSkillNumber');
+    const squillRange = document.getElementById('noteSquill');
+    const squillNumber = document.getElementById('noteSquillNumber');
 
     const locationRange = document.getElementById('noteLocation');
     const locationNumber = document.getElementById('noteLocationNumber');
@@ -8,26 +8,26 @@ window.onload = function() {
     const modifBase = document.getElementsByClassName('modifBase');
 
 
-    skillRange.addEventListener('input', function() {
-        skillNumber.value = skillRange.value;
+    squillRange.addEventListener('input', function() {
+        squillNumber.value = squillRange.value;
     });
-    skillNumber.addEventListener('input', function() {
-        let value = skillNumber.value;
+    squillNumber.addEventListener('input', function() {
+        let value = squillNumber.value;
 
         if (value < 0){
             value = 0;
-            skillNumber.value = 0;
+            squillNumber.value = 0;
         }
 
         if (value > 10){
             value = 10;
-            skillNumber.value = 10;
+            squillNumber.value = 10;
         }
 
         if (value == ""){
-            skillRange.value = 0;
+            squillRange.value = 0;
         }else {
-            skillRange.value = value;
+            squillRange.value = value;
         }
     });
 
