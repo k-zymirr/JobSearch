@@ -82,7 +82,7 @@ function changeTheme() {
 }
 
 function toggleCheckbox(id) {
-    var checkbox = document.getElementById('delete-' + id);
+    let checkbox = document.getElementById('delete-' + id);
     checkbox.checked = !checkbox.checked;
     document.getElementById('changed').click();
 }

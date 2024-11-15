@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'College';
+    src: url('fonts/college.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 body {
     background-color: #fff;
     color: #000;
@@ -13,8 +20,9 @@ input {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 80px;
     text-align: center;
+    font-family: 'College';
 }
 
 h2 {
@@ -28,6 +36,7 @@ div {
 
 body > div {
     border: solid 1px black;
+    background-color: #eee;
     border-radius: 30px;
     width: 70%;
     margin-left: auto;
@@ -37,6 +46,7 @@ body > div {
 
 .darkTheme > div {
     border: solid 1px #fff;
+    background-color: #2e2e2e;
 }
 
 form > div {
@@ -121,7 +131,9 @@ input[type="text"]:valid ~ label {
 }
 
 input[type="number"] {
-    width: 25%;
+    border-radius: 5px;
+    text-align: center;
+    width: 45%;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
@@ -131,6 +143,16 @@ input[type="number"] {
 .darkTheme input[type="number"] {
     border: solid 1px #fff;
     color: #fff;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .send {

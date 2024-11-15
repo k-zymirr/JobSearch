@@ -1,23 +1,12 @@
 <?php
 $dns = 'sqlite:./db.sqlite';
 $pdo = new PDO($dns);
+$addOffer;
 
 try {
     $addOffer = $pdo->prepare("
     INSERT INTO Offers (name, link, skill, noteSkill, location, noteLocation, score, applied, response)
     VALUES (:name, :link, :skill, :noteSkill, :location, :noteLocation, :score, :applied, :response)");
-
-    $addOffer->execute([
-        'name' => $_POST['offer'],
-        'link' => $_POST['link'],
-        'skill' => $_POST['skill'],
-        'noteSkill' => $_POST['noteSkill'],
-        'location' => $_POST['location'],
-        'noteLocation' => $_POST['noteLocation'],
-        'score' => $_POST['noteSkill'] + $_POST['noteLocation'],
-        'applied' => 0,
-        'response' => ""
-    ]);
 } catch (PDOException $e) {
     if ($e->getCode() === "HY000"){
         $pdo->exec("
@@ -37,21 +26,28 @@ try {
             $addOffer = $pdo->prepare("
             INSERT INTO Offers (name, link, skill, noteSkill, location, noteLocation, score, applied, response)
             VALUES (:name, :link, :skill, :noteSkill, :location, :noteLocation, :score, :applied, :response)");
-
-
-            $addOffer->execute([
-                'name' => $_POST['offer'],
-                'link' => $_POST['link'],
-                'skill' => $_POST['skill'],
-                'noteSkill' => $_POST['noteSkill'],
-                'location' => $_POST['location'],
-                'noteLocation' => $_POST['noteLocation'],
-                'score' => $_POST['noteSkill'] + $_POST['noteLocation'],
-                'applied' => false,
-                'response' => ""
-            ]);
         }
 } finally {
+    $link = $_POST['link'];
+    if (strpos($link, 'http') === false) {
+        $link = 'http://' . $link;
+    }
+    if (strpos($link, 'www.') === false) {
+        $link = str_replace('http://', 'http://www.', $link);
+    }
+
+    $addOffer->execute([
+        'name' => $_POST['offer'],
+        'link' => $link,
+        'skill' => $_POST['skill'],
+        'noteSkill' => $_POST['noteSkill'],
+        'location' => $_POST['location'],
+        'noteLocation' => $_POST['noteLocation'],
+        'score' => $_POST['noteSkill'] + $_POST['noteLocation'],
+        'applied' => 0,
+        'response' => ""
+    ]);
+
     header('Refresh:0; url=index.php');
     die();
 }
