@@ -67,12 +67,9 @@
             $getOffers = $pdo->prepare("SELECT * FROM Offers ORDER BY score DESC");
             $getOffers->execute();
             $offers = $getOffers->fetchAll();
-        }catch (PDOException $e){
-            // Do nothing
-        }
                 
-        if (count($offers) > 0) {
-            foreach($offers as &$offr):
+            if (count($offers) > 0) {
+                foreach($offers as &$offr):
     ?>
         <table>
             <thead>
@@ -109,7 +106,10 @@
         </table>
         <input type="submit" value="submit" id="changed">
         <?php
-            endforeach;
+                endforeach;
+        }
+        }catch (PDOException $e){
+            //pass
         }
         ?>
     </form>
