@@ -2,7 +2,7 @@
 A web application to help with job research
 
 ## WARNING
-This repo is in the test phase, for linux you must wait a little bit for it to be perfectly usable (if you allready have php and php-sqlite3 on your machin there is no problem)
+This repo is in the test phase, for arch you must wait a little bit for it to be perfectly usable (if you allready have php and php-sqlite3 on your machin there is no problem)
 
 ## How to use?
 
