@@ -1,4 +1,8 @@
 window.onload = function() {
+    if (localStorage.getItem('lang') === null) {
+        localStorage.setItem('lang', 'fr');
+    }
+
     const skillRange = document.querySelectorAll('#noteSkill');
     const skillNumber = document.querySelectorAll('#noteSkillNumber');
 
