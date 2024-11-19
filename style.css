@@ -34,7 +34,7 @@ div {
     width: 100%;
 }
 
-body > div {
+body > span > div {
     border: solid 1px black;
     background-color: #eee;
     border-radius: 30px;
@@ -44,7 +44,7 @@ body > div {
     margin-bottom: 100px;
 }
 
-.darkTheme > div {
+.darkTheme > span > div {
     border: solid 1px #fff;
     background-color: #2e2e2e;
 }
@@ -255,7 +255,7 @@ a, a:visited {
     padding: 10px;
 }
 
-#changed {
+#changed-fr, #changed-en {
     display: none;
 }
 
@@ -272,6 +272,36 @@ a, a:visited {
     cursor: pointer;
 }
 
+.lang-fr {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-image: url("img/fr-flag.png");
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
+.lang-en {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-image: url("img/uk-flag.png");
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
 .darkTheme .theme {
     background-image: url("img/moon.png");
+}
+
+.fr .en {
+    all: initial;
 }
