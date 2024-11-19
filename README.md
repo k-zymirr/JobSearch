@@ -1,20 +1,32 @@
 # JobSearch
-A web application to help in job research
+A web application to help with job research
 
-## How to setup ?
+## How to use?
 
-1. Clone this repo (MAIN STOP USING SOME WEIRDO BRANCH)
-2. Get in the directory
-3. Execute this command
-```bash
- php -S localhost:8080
+### Windows
+
+Right-click on `start_windows.bat` and select `Run as administrator`
+
+### Linux
+
+#### If you have a Debian-based OS (Debian, Ubuntu, Kali, Mint, ...)
 ```
-4. Go to your web browser and search ***localhost:8080***
-5. Here you go !
-6. Everytime you shutdown your computer or close your terminal you have to do again the step from 3.
+chmod +x start_debian.sh
+./start_debian.sh
+```
 
+#### If you have an Arch-based OS (Arch, Fedora, ...)
+```
+chmod +x start_arch.sh
+./start_arch.sh
+```
 
 ## Coming soon
 
-- A better readme LOL
-- An english version
+- An English version
+- A Mac version (maybe, if it's simple, make pull requests LOL)
+
+## Contributors
+
+[k_zymir](https://github.com/k-zymirr)  
+[StenguyzCSGO](https://github.com/StenguyzCSGO)
