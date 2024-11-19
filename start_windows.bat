@@ -22,8 +22,7 @@ if %errorlevel% equ 0 (
     del php.zip
     echo PHP installation complete.
     echo Configuring PHP...
-    powershell -Command "(gc 'C:\php\php.ini') -replace ';extension=intl', 'extension=intl' | Out-File -encoding ASCII 'C:\php\php.ini'"
-    powershell -Command "(gc 'C:\php\php.ini') -replace ';extension=mbstring', 'extension=mbstring' | Out-File -encoding ASCII 'C:\php\php.ini'"
+    powershell -Command "(gc 'C:\php\php.ini-development') -replace ';extension=pdo_sqlite', 'extension=pdo_sqlite' | Out-File -encoding ASCII 'C:\php\php.ini'"
     echo PHP configuration complete.
 )
 
