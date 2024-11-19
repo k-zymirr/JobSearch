@@ -23,9 +23,8 @@ chmod +x start_arch.sh
 
 ## Coming soon
 
-- An English version
 - A Mac version (maybe, if it's simple, make pull requests LOL)
-- An icon for the website ¯\\\_(ツ)\_/¯ 
+! I'M OPEN TO SUGGESTIONS !
 
 ## Contributors
 
