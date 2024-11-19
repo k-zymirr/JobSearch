@@ -21,10 +21,12 @@ if %errorlevel% equ 0 (
     setx PATH "%PATH%;C:\php"
     del php.zip
     echo PHP installation complete.
+    echo Configuring PHP...
+    powershell -Command "(gc 'C:\php\php.ini') -replace ';extension=intl', 'extension=intl' | Out-File -encoding ASCII 'C:\php\php.ini'"
+    powershell -Command "(gc 'C:\php\php.ini') -replace ';extension=mbstring', 'extension=mbstring' | Out-File -encoding ASCII 'C:\php\php.ini'"
+    echo PHP configuration complete.
 )
 
 echo Starting PHP server and Job Search app...
 start cmd /K "cd /d %~dp0 && php -S localhost:8080"
 start http://localhost:8080
-
-pause
