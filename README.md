@@ -29,5 +29,5 @@ chmod +x start_arch.sh
 
 ## Contributors
 
-[k_zymirr](https://github.com/k-zymirr)  
+[k-zymirr](https://github.com/k-zymirr)  
 [StenguyzCSGO](https://github.com/StenguyzCSGO)
