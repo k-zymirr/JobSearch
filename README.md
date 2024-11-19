@@ -23,7 +23,7 @@ chmod +x start_arch.sh
 
 ## Coming soon
 
-- A Mac version (maybe, if it's simple, make pull requests LOL)
+- A Mac version (maybe, if it's simple, make pull requests LOL)  
 ! I'M OPEN TO SUGGESTIONS !
 
 ## Contributors
