@@ -1,7 +1,5 @@
 <?php
-
-$dns = 'sqlite:./db.sqlite';
-$pdo = new PDO($dns);
+require_once __DIR__ . '/config.php';
 
 
 if (!empty($_POST)) {

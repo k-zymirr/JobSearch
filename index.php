@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . "/config.php"?>
+
 <!DOCTYPE html>
 
 
@@ -59,17 +61,13 @@
     </div>
 
     <form action="modify_offer.php" method="post">
-    <?php
-    $dns = "sqlite:./db.sqlite";
-    $pdo = new PDO($dns);
+        <?php
+            try {
+                $getOffers->execute();
+                $offers = $getOffers->fetchAll();
 
-    try {
-        $getOffers = $pdo->prepare("SELECT * FROM Offers ORDER BY score DESC");
-        $getOffers->execute();
-        $offers = $getOffers->fetchAll();
-
-        if (count($offers) > 0) {
-            foreach ($offers as &$offr): ?>
+                if (count($offers) > 0) {
+        ?>
         <table>
             <thead>
                 <tr>
@@ -86,51 +84,36 @@
                 </tr>
             </thead>
             <tbody>
+            <?php
+                foreach ($offers as &$offr):
+            ?>
                 <tr>
                     <td><?= $offr["name"] ?></td>
-                    <td class="center"><a href="<?= $offr[
-                        "link"
-                    ] ?>" target="_blank" rel="noopener noreferrer"><?= explode(
-    ".",
-    $offr["link"]
-)[1] ?></a></td>
+                    <td class="center"><a href="<?= $offr["link"] ?>" target="_blank" rel="noopener noreferrer"><?= explode(".",$offr["link"])[1] ?></a></td>
                     <td><?= $offr["skill"] ?></td>
                     <td class="center"><?= $offr["noteSkill"] ?>/10</td>
                     <td><?= $offr["location"] ?></td>
                     <td class="center"><?= $offr["noteLocation"] ?>/10</td>
                     <td class="center"><?= $offr["score"] ?>/20</td>
-                    <td class="center"><input type="checkbox" name="postule-<?= $offr[
-                        "id"
-                    ] ?>" id="postule-<?= $offr[
-    "id"
-] ?>" class="modifBase" <?= $offr["applied"] == 1 ? "checked" : "" ?>></td>
-                    <td><input type="text" name="reponse-<?= $offr[
-                        "id"
-                    ] ?>" id="reponse-<?= $offr[
-    "id"
-] ?>" class="modifBase" <?= strlen($offr["response"]) == 0
-    ? ""
-    : "value='" . $offr["response"] . "'" ?>></td>
+                    <td class="center"><input type="checkbox" name="postule-<?= $offr["id"] ?>" id="postule-<?= $offr["id"] ?>" class="modifBase" <?= $offr["applied"] == 1 ? "checked" : "" ?>></td>
+                    <td><input type="text" name="reponse-<?= $offr["id"] ?>" id="reponse-<?= $offr["id"] ?>" class="modifBase" <?= strlen($offr["response"]) == 0 ? "" : "value='" . $offr["response"] . "'" ?>></td>
                     <td>
-                        <label for="delete-<?= $offr[
-                            "id"
-                        ] ?>" class="del"><button type="button" onclick="toggleCheckbox(<?= $offr[
-    "id"
-] ?>)">Supprimer</button></label>
-                        <input type="checkbox" name="delete-<?= $offr[
-                            "id"
-                        ] ?>" id="delete-<?= $offr["id"] ?>" class="modifBase">
+                        <label for="delete-<?= $offr["id"] ?>" class="del"><button type="button" onclick="toggleCheckbox(<?= $offr['id'] ?>)">Supprimer</button></label>
+                        <input type="checkbox" name="delete-<?= $offr["id"] ?>" id="delete-<?= $offr["id"] ?>" class="modifBase">
                     </td>
                 </tr>
+        <?php
+                endforeach;
+        ?>
             </tbody>
         </table>
         <input type="submit" value="submit" id="changed">
-        <?php endforeach;
+        <?php
         }
-    } catch (PDOException $e) {
-        //pass
-    }
-    ?>
+            } catch (PDOException $e) {
+                //pass
+            }
+        ?>
     </form>
 </body>
 </html>
